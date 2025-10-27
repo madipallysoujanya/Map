@@ -1,28 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Polygon, CircleMarker, Popup, useMap } from 'react-leaflet';
-import { Search, ZoomIn, ZoomOut, Home, Layers, Menu, Map as MapIcon, Locate, ArrowRight } from 'lucide-react';
+import { Search, ZoomIn, ZoomOut, Home, Layers, Menu, Map as MapIcon, Locate } from 'lucide-react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import {  FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const singaporeCoords: [number, number] = [1.3521, 103.8198];
 
 const exposurePolygon: [number, number][] = [
-  [1.45, 103.65],
-  [1.48, 103.72],
-  [1.50, 103.80],
-  [1.52, 103.88],
-  [1.50, 103.95],
-  [1.45, 104.00],
-  [1.38, 104.02],
-  [1.30, 104.00],
-  [1.25, 103.95],
-  [1.22, 103.88],
-  [1.20, 103.80],
-  [1.22, 103.72],
-  [1.25, 103.68],
-  [1.30, 103.65],
-  [1.38, 103.64],
+  [1.45, 103.65], [1.48, 103.72], [1.50, 103.80],
+  [1.52, 103.88], [1.50, 103.95], [1.45, 104.00],
+  [1.38, 104.02], [1.30, 104.00], [1.25, 103.95],
+  [1.22, 103.88], [1.20, 103.80], [1.22, 103.72],
+  [1.25, 103.68], [1.30, 103.65], [1.38, 103.64],
 ];
 
 const locations = [
@@ -55,89 +45,63 @@ function MapControls() {
 
   const handleLeftArrow = () => {
     const currentCenter = map.getCenter();
-    map.setView([currentCenter.lat, currentCenter.lng - 0.05], map.getZoom()); // Pans to the left
+    map.setView([currentCenter.lat, currentCenter.lng - 0.05], map.getZoom());
   };
 
   const handleRightArrow = () => {
     const currentCenter = map.getCenter();
-    map.setView([currentCenter.lat, currentCenter.lng + 0.05], map.getZoom()); // Pans to the right
+    map.setView([currentCenter.lat, currentCenter.lng + 0.05], map.getZoom());
   };
 
   return (
     <>
       <div className="absolute top-4 left-4 z-[1000]">
-        <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <button className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <Search className="w-5 h-5 text-gray-700" />
         </button>
       </div>
 
       <div className="absolute top-4 left-16 flex flex-col gap-2 z-[1000]">
-        <button
-          onClick={handleZoomIn}
-          className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
+        <button onClick={handleZoomIn} className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <ZoomIn className="w-5 h-5 text-gray-700" />
         </button>
-        <button
-          onClick={handleZoomOut}
-          className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
+        <button onClick={handleZoomOut} className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <ZoomOut className="w-5 h-5 text-gray-700" />
         </button>
       </div>
 
       <div className="absolute top-20 left-4 flex flex-col gap-2 z-[1000]">
-        <button
-          onClick={handleHome}
-          className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
+        <button onClick={handleHome} className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <Home className="w-5 h-5 text-gray-700" />
         </button>
-        <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <button className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <Locate className="w-5 h-5 text-gray-700" />
         </button>
       </div>
 
       <div className="absolute top-4 right-4 flex flex-col gap-2 z-[1000]">
-        <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <button className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <MapIcon className="w-5 h-5 text-gray-700" />
         </button>
-        <button className="w-10 h-10 bg-blue-600 rounded shadow-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+        <button className="w-10 h-10 bg-blue-600 rounded shadow flex items-center justify-center hover:bg-blue-700">
           <Layers className="w-5 h-5 text-white" />
         </button>
-        <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <button className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <Menu className="w-5 h-5 text-gray-700" />
         </button>
       </div>
 
-      {/* Centered Left Arrow */}
-      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-[1000]">
-        <button
-          onClick={handleLeftArrow}
-          className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
+      {/* Left and Right Arrows */}
+      <div className="absolute top-1/2 left-2 transform -translate-y-1/2 z-[1000]">
+        <button onClick={handleLeftArrow} className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
           <FaChevronLeft className="w-5 h-5 text-gray-700" />
         </button>
       </div>
 
-      {/* Centered Right Arrow */}
-      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-[1000]">
-        <button
-          onClick={handleRightArrow}
-          className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
-        >
-          <FaChevronRight   className="w-5 h-5 text-gray-700" />
+      <div className="absolute top-1/2 right-2 transform -translate-y-1/2 z-[1000]">
+        <button onClick={handleRightArrow} className="w-10 h-10 bg-white rounded shadow flex items-center justify-center hover:bg-gray-50">
+          <FaChevronRight className="w-5 h-5 text-gray-700" />
         </button>
-      </div>
-
-      <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-sm rounded shadow-lg p-3 z-[1000]">
-        <div className="flex items-center gap-3">
-          <div className="font-bold text-gray-800 text-xs">Legend</div>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-4 bg-transparent rounded"></div>
-            <span className="text-xs text-gray-700">Exposure</span>
-          </div>
-        </div>
       </div>
     </>
   );
@@ -150,16 +114,15 @@ function LocationLabels() {
     locations.forEach(location => {
       const label = L.divIcon({
         className: 'location-label',
-        html: `<div style="color: white; font-size: 11px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.8); white-space: pre-line; text-align: center;">${location.name}</div>`,
+        html: `<div style="color:white;font-size:11px;font-weight:600;text-shadow:0 2px 4px rgba(0,0,0,0.8);white-space:pre-line;text-align:center;">${location.name}</div>`,
         iconSize: [0, 0],
       });
-
       L.marker(location.coords, { icon: label }).addTo(map);
     });
 
     const singaporeLabel = L.divIcon({
       className: 'singapore-label',
-      html: '<div style="color: white; font-size: 14px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Johor Bahru</div>',
+      html: '<div style="color:white;font-size:14px;font-weight:bold;text-shadow:0 2px 4px rgba(0,0,0,0.8);">Johor Bahru</div>',
       iconSize: [0, 0],
     });
     L.marker([1.47, 103.76], { icon: singaporeLabel }).addTo(map);
@@ -170,11 +133,11 @@ function LocationLabels() {
 
 export default function MapView() {
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full h-screen m-0 p-0 overflow-hidden">
       <MapContainer
         center={singaporeCoords}
         zoom={10}
-        className="w-full h-full"
+        className="w-full h-full m-0 p-0"
         zoomControl={false}
       >
         <TileLayer
@@ -184,12 +147,7 @@ export default function MapView() {
 
         <Polygon
           positions={exposurePolygon}
-          pathOptions={{
-            fillOpacity: 0, // Removed fill color
-            color: '#404040', // Kept outline for visibility
-            weight: 2,
-            opacity: 0.8,
-          }}
+          pathOptions={{ fillOpacity: 0, color: '#404040', weight: 2, opacity: 0.8 }}
         >
           <Popup>
             <div className="text-center">
@@ -203,29 +161,14 @@ export default function MapView() {
         <CircleMarker
           center={singaporeCoords}
           radius={8}
-          pathOptions={{
-            fillOpacity: 0, // Removed fill color
-            color: '#404040', // Kept outline for visibility
-            weight: 2,
-          }}
+          pathOptions={{ fillOpacity: 0, color: '#404040', weight: 2 }}
         >
-          <Popup>
-            <strong>Singapore</strong>
-          </Popup>
+          <Popup><strong>Singapore</strong></Popup>
         </CircleMarker>
 
-        {reservoirs.map((reservoir, idx) => (
-          <CircleMarker
-            key={idx}
-            center={reservoir.coords}
-            radius={6}
-            pathOptions={{
-              fillOpacity: 0, // Removed fill color
-              color: '#404040', // Kept outline for visibility
-              weight: 1,
-            }}
-          >
-            <Popup>{reservoir.name}</Popup>
+        {reservoirs.map((r, i) => (
+          <CircleMarker key={i} center={r.coords} radius={6} pathOptions={{ fillOpacity: 0, color: '#404040', weight: 1 }}>
+            <Popup>{r.name}</Popup>
           </CircleMarker>
         ))}
 
@@ -235,6 +178,252 @@ export default function MapView() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+// import { useEffect, useRef } from 'react';
+// import { MapContainer, TileLayer, Polygon, CircleMarker, Popup, useMap } from 'react-leaflet';
+// import { Search, ZoomIn, ZoomOut, Home, Layers, Menu, Map as MapIcon, Locate, ArrowRight } from 'lucide-react';
+// import L from 'leaflet';
+// import 'leaflet/dist/leaflet.css';
+// import {  FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+// const singaporeCoords: [number, number] = [1.3521, 103.8198];
+
+// const exposurePolygon: [number, number][] = [
+//   [1.45, 103.65],
+//   [1.48, 103.72],
+//   [1.50, 103.80],
+//   [1.52, 103.88],
+//   [1.50, 103.95],
+//   [1.45, 104.00],
+//   [1.38, 104.02],
+//   [1.30, 104.00],
+//   [1.25, 103.95],
+//   [1.22, 103.88],
+//   [1.20, 103.80],
+//   [1.22, 103.72],
+//   [1.25, 103.68],
+//   [1.30, 103.65],
+//   [1.38, 103.64],
+// ];
+
+// const locations = [
+//   { name: 'Senai', coords: [1.58, 103.60] as [number, number] },
+//   { name: 'Taman Johor Jaya', coords: [1.53, 103.78] as [number, number] },
+//   { name: 'Pasir Gudang', coords: [1.48, 103.90] as [number, number] },
+//   { name: 'Tebrau', coords: [1.52, 103.74] as [number, number] },
+//   { name: 'Kampung\nPasir Puteh', coords: [1.50, 103.82] as [number, number] },
+//   { name: 'Kampung\nTengah', coords: [1.48, 103.92] as [number, number] },
+//   { name: 'Layang\nLayang', coords: [1.35, 103.68] as [number, number] },
+//   { name: 'Sungai Tiram', coords: [1.48, 104.05] as [number, number] },
+//   { name: 'Pengerang', coords: [1.38, 104.10] as [number, number] },
+//   { name: 'Bandar\nPenawar', coords: [1.28, 104.15] as [number, number] },
+//   { name: 'Central\nWater\nCatchment', coords: [1.42, 103.72] as [number, number] },
+//   { name: 'Western\nWater\nCatchment', coords: [1.38, 103.70] as [number, number] },
+//   { name: 'Tanjong\nPagar', coords: [1.28, 103.72] as [number, number] },
+// ];
+
+// const reservoirs = [
+//   { name: 'Kranji Reservoir', coords: [1.43, 103.72] as [number, number] },
+//   { name: 'Seletar Reservoir', coords: [1.40, 103.82] as [number, number] },
+// ];
+
+// function MapControls() {
+//   const map = useMap();
+
+//   const handleZoomIn = () => map.zoomIn();
+//   const handleZoomOut = () => map.zoomOut();
+//   const handleHome = () => map.setView(singaporeCoords, 10);
+
+//   const handleLeftArrow = () => {
+//     const currentCenter = map.getCenter();
+//     map.setView([currentCenter.lat, currentCenter.lng - 0.05], map.getZoom()); // Pans to the left
+//   };
+
+//   const handleRightArrow = () => {
+//     const currentCenter = map.getCenter();
+//     map.setView([currentCenter.lat, currentCenter.lng + 0.05], map.getZoom()); // Pans to the right
+//   };
+
+//   return (
+//     <>
+//       <div className="absolute top-4 left-4 z-[1000]">
+//         <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+//           <Search className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       <div className="absolute top-4 left-16 flex flex-col gap-2 z-[1000]">
+//         <button
+//           onClick={handleZoomIn}
+//           className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+//         >
+//           <ZoomIn className="w-5 h-5 text-gray-700" />
+//         </button>
+//         <button
+//           onClick={handleZoomOut}
+//           className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+//         >
+//           <ZoomOut className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       <div className="absolute top-20 left-4 flex flex-col gap-2 z-[1000]">
+//         <button
+//           onClick={handleHome}
+//           className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+//         >
+//           <Home className="w-5 h-5 text-gray-700" />
+//         </button>
+//         <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+//           <Locate className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       <div className="absolute top-4 right-4 flex flex-col gap-2 z-[1000]">
+//         <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+//           <MapIcon className="w-5 h-5 text-gray-700" />
+//         </button>
+//         <button className="w-10 h-10 bg-blue-600 rounded shadow-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+//           <Layers className="w-5 h-5 text-white" />
+//         </button>
+//         <button className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
+//           <Menu className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       {/* Centered Left Arrow */}
+//       <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-[1000]">
+//         <button
+//           onClick={handleLeftArrow}
+//           className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+//         >
+//           <FaChevronLeft className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       {/* Centered Right Arrow */}
+//       <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-[1000]">
+//         <button
+//           onClick={handleRightArrow}
+//           className="w-10 h-10 bg-white rounded shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
+//         >
+//           <FaChevronRight   className="w-5 h-5 text-gray-700" />
+//         </button>
+//       </div>
+
+//       <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-sm rounded shadow-lg p-3 z-[1000]">
+//         <div className="flex items-center gap-3">
+//           <div className="font-bold text-gray-800 text-xs">Legend</div>
+//           <div className="flex items-center gap-2">
+//             <div className="w-8 h-4 bg-transparent rounded"></div>
+//             <span className="text-xs text-gray-700">Exposure</span>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// function LocationLabels() {
+//   const map = useMap();
+
+//   useEffect(() => {
+//     locations.forEach(location => {
+//       const label = L.divIcon({
+//         className: 'location-label',
+//         html: `<div style="color: white; font-size: 11px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.8); white-space: pre-line; text-align: center;">${location.name}</div>`,
+//         iconSize: [0, 0],
+//       });
+
+//       L.marker(location.coords, { icon: label }).addTo(map);
+//     });
+
+//     const singaporeLabel = L.divIcon({
+//       className: 'singapore-label',
+//       html: '<div style="color: white; font-size: 14px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Johor Bahru</div>',
+//       iconSize: [0, 0],
+//     });
+//     L.marker([1.47, 103.76], { icon: singaporeLabel }).addTo(map);
+//   }, [map]);
+
+//   return null;
+// }
+
+// export default function MapView() {
+//   return (
+//     <div className="relative w-full h-screen">
+//       <MapContainer
+//         center={singaporeCoords}
+//         zoom={10}
+//         className="w-full h-full"
+//         zoomControl={false}
+//       >
+//         <TileLayer
+//           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+//           attribution='&copy; Esri'
+//         />
+
+//         <Polygon
+//           positions={exposurePolygon}
+//           pathOptions={{
+//             fillOpacity: 0, // Removed fill color
+//             color: '#404040', // Kept outline for visibility
+//             weight: 2,
+//             opacity: 0.8,
+//           }}
+//         >
+//           <Popup>
+//             <div className="text-center">
+//               <strong>Exposure Zone</strong>
+//               <br />
+//               Singapore Region
+//             </div>
+//           </Popup>
+//         </Polygon>
+
+//         <CircleMarker
+//           center={singaporeCoords}
+//           radius={8}
+//           pathOptions={{
+//             fillOpacity: 0, // Removed fill color
+//             color: '#404040', // Kept outline for visibility
+//             weight: 2,
+//           }}
+//         >
+//           <Popup>
+//             <strong>Singapore</strong>
+//           </Popup>
+//         </CircleMarker>
+
+//         {reservoirs.map((reservoir, idx) => (
+//           <CircleMarker
+//             key={idx}
+//             center={reservoir.coords}
+//             radius={6}
+//             pathOptions={{
+//               fillOpacity: 0, // Removed fill color
+//               color: '#404040', // Kept outline for visibility
+//               weight: 1,
+//             }}
+//           >
+//             <Popup>{reservoir.name}</Popup>
+//           </CircleMarker>
+//         ))}
+
+//         <MapControls />
+//         <LocationLabels />
+//       </MapContainer>
+//     </div>
+//   );
+// }
 
 
 
