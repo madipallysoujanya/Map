@@ -10,7 +10,7 @@ export default function Header() {
           <img
             src={globeImage}
             alt="Asia Globe"
-            className="h-16 w-16 object-contain"
+            className="h-14 w-16 object-contain"
           />
 
           <div className="flex flex-col">

@@ -51,6 +51,59 @@ export default function RiskTypeSelector({ onRiskTypeChange }: RiskTypeSelectorP
 
 
 
+// import { useEffect, useState } from 'react';
+// import { ChevronDown } from 'lucide-react';
+
+// interface RiskType {
+//   id: string;
+//   name: string;
+// }
+
+// interface RiskTypeSelectorProps {
+//   onRiskTypeChange: (riskTypeId: string) => void;
+// }
+
+// export default function RiskTypeSelector({ onRiskTypeChange }: RiskTypeSelectorProps) {
+//   const [riskTypes] = useState<RiskType[]>([
+//     { id: '1', name: 'Pandemic' },
+//     { id: '2', name: 'Natural Disaster' },
+//     { id: '3', name: 'Climate Risk' },
+//     { id: '4', name: 'Economic Risk' }
+//   ]);
+//   const [selectedRiskType, setSelectedRiskType] = useState('');
+
+//   useEffect(() => {
+//     onRiskTypeChange(selectedRiskType);
+//   }, [selectedRiskType, onRiskTypeChange]);
+
+//   return (
+//     <div className="mb-4">
+//       <h3 className="text-sm font-bold text-[#020264] mb-2">Risk Type</h3>
+//       <div className="relative">
+//         <select
+//           value={selectedRiskType}
+//           onChange={(e) => setSelectedRiskType(e.target.value)}
+//           className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded bg-white appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#020264] focus:border-[#020264]"
+//         >
+//           <option value="">Select Risk Type</option>
+//           {riskTypes.map((type) => (
+//             <option key={type.id} value={type.id}>
+//               {type.name}
+//             </option>
+//           ))}
+//         </select>
+//         <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
 
 
 

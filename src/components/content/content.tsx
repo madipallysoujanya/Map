@@ -62,7 +62,7 @@ const Content = () => {
                 <div className="grid grid-cols-3 gap-1 w-[320px] text-xs">
                     <div className="col-span-1">
                         <select className="w-full px-1.5 py-1 text-xs border border-gray-300 rounded bg-white appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400">
-                            <option value="">Select year</option>
+                            <option value="">Select Year</option>
                             <option value="1">2022</option>
                             <option value="2">2023</option>
                             <option value="3">2024</option>
@@ -90,14 +90,16 @@ const Content = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="age-section">
-                        <h1 className="text-center">Age</h1>
-                        <PieChart data={ageData} />
-                    </div>
+                     <h1 className="text-center font-bold">Age</h1>
+                       <PieChart data={ageData} />
+                </div>
+
 
                     <div className="location-section">
-                        <h1 className="text-center">Location</h1>
-                        <BarChart data={locationData} />
-                    </div>
+  <h1 className="text-center font-bold">Location</h1>
+  <BarChart data={locationData} />
+</div>
+
                 </div>
 
                 {/* table */}
