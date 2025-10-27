@@ -42,7 +42,7 @@ export default function KnowledgeRepository() {
       <h3 className="text-sm font-bold text-[#020264] mb-2">Knowledge Repository</h3>
 
       <div className="mb-3">
-        <p className="text-[#2B83F6] text-xs font-semibold mb-2">Top 3 Risks + Solutions</p>
+        <p className="text-[#2B83F6] text-xs font-semibold mb-2">Top 3 Risks - Solutions</p>
 
         <div className="space-y-2">
           {solutions.map((solution) => (
