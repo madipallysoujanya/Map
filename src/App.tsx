@@ -33,7 +33,7 @@ function App() {
           <KnowledgeRepository />
         </aside>
 
-        <main className="flex-1 p-4">
+        <main className="flex-1">
           <MapView />
         </main>
 
