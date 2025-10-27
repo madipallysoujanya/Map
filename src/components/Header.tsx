@@ -1,160 +1,17 @@
+import React from "react";
+import globeImage from "../assets/logo.jpg"; // <-- make sure image path is correct
+
 export default function Header() {
   return (
     <div>
       <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <svg
-            width="180"
-            height="180"
-            viewBox="0 0 180 180"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-16 w-auto"
-          >
-            <defs>
-              <clipPath id="globeClip">
-                <circle cx="90" cy="90" r="85" />
-              </clipPath>
-              <linearGradient id="asiaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop
-                  offset="0%"
-                  style={{ stopColor: "#020264", stopOpacity: 1 }}
-                />
-                <stop
-                  offset="100%"
-                  style={{ stopColor: "#2B83F8", stopOpacity: 1 }}
-                />
-              </linearGradient>
-            </defs>
-
-            {/* Light background for the globe */}
-            <circle cx="90" cy="90" r="85" fill="#e0f2fe" />
-
-            <g clipPath="url(#globeClip)">
-              {/* Black internal grid lines */}
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="64"
-                ry="85"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="42"
-                ry="85"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="21"
-                ry="85"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <line
-                x1="90"
-                y1="5"
-                x2="90"
-                y2="175"
-                stroke="black"
-                strokeWidth="2"
-              />
-
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="85"
-                ry="64"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="85"
-                ry="42"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <ellipse
-                cx="90"
-                cy="90"
-                rx="85"
-                ry="21"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-              />
-              <line
-                x1="5"
-                y1="90"
-                x2="175"
-                y2="90"
-                stroke="black"
-                strokeWidth="2"
-              />
-
-              {/* Asia highlight in gradient blue - proper coverage */}
-              <path
-                d="M 40 60 
-                   Q 55 50 70 55 
-                   Q 85 60 100 65 
-                   Q 115 70 130 80 
-                   Q 145 90 145 105 
-                   Q 145 120 135 130 
-                   Q 125 140 110 140 
-                   Q 95 140 80 135 
-                   Q 65 130 55 120 
-                   Q 45 110 45 100 
-                   Q 45 90 50 80 
-                   Q 55 70 40 60 Z"
-                fill="url(#asiaGradient)"
-                opacity="0.85"
-              />
-              
-              {/* Eastern extension */}
-              <path
-                d="M 140 55 
-                   Q 150 65 152 75 
-                   Q 154 85 150 90 
-                   L 145 85 
-                   Q 142 75 140 70 
-                   Z"
-                fill="url(#asiaGradient)"
-                opacity="0.85"
-              />
-              
-              {/* Southern extension */}
-              <path
-                d="M 50 110 
-                   Q 60 120 70 125 
-                   L 65 115 
-                   Q 58 110 55 105 
-                   Z"
-                fill="url(#asiaGradient)"
-                opacity="0.85"
-              />
-            </g>
-
-            {/* Blue rounded globe border */}
-            <circle
-              cx="90"
-              cy="90"
-              r="85"
-              fill="none"
-              stroke="#020264"
-              strokeWidth="4"
-            />
-          </svg>
+          {/* Globe Image (same size as previous SVG) */}
+          <img
+            src={globeImage}
+            alt="Asia Globe"
+            className="h-16 w-16 object-contain"
+          />
 
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold text-[#020264] leading-tight">
@@ -167,10 +24,7 @@ export default function Header() {
         </div>
 
         <nav className="flex items-center gap-6">
-          <a
-            href="#"
-            className="text-[#020264] font-semibold"
-          >
+          <a href="#" className="text-[#020264] font-semibold">
             Risk Database
           </a>
           <a href="#" className="text-[#2B83F6] hover:text-[#020264]">
@@ -193,11 +47,221 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Blue line below header - thinner version */}
+      {/* Blue gradient line below header */}
       <div className="w-full h-[1px] bg-gradient-to-r from-[#020264] to-[#2B83F8]"></div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+// export default function Header() {
+//   return (
+//     <div>
+//       <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
+//         <div className="flex items-center gap-3">
+//           <svg
+//             width="180"
+//             height="180"
+//             viewBox="0 0 180 180"
+//             xmlns="http://www.w3.org/2000/svg"
+//             className="h-16 w-auto"
+//           >
+//             <defs>
+//               <clipPath id="globeClip">
+//                 <circle cx="90" cy="90" r="85" />
+//               </clipPath>
+//               <linearGradient id="asiaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+//                 <stop
+//                   offset="0%"
+//                   style={{ stopColor: "#020264", stopOpacity: 1 }}
+//                 />
+//                 <stop
+//                   offset="100%"
+//                   style={{ stopColor: "#2B83F8", stopOpacity: 1 }}
+//                 />
+//               </linearGradient>
+//             </defs>
+
+//             {/* Light background for the globe */}
+//             <circle cx="90" cy="90" r="85" fill="#e0f2fe" />
+
+//             <g clipPath="url(#globeClip)">
+//               {/* Black internal grid lines */}
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="64"
+//                 ry="85"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="42"
+//                 ry="85"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="21"
+//                 ry="85"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <line
+//                 x1="90"
+//                 y1="5"
+//                 x2="90"
+//                 y2="175"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="85"
+//                 ry="64"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="85"
+//                 ry="42"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <ellipse
+//                 cx="90"
+//                 cy="90"
+//                 rx="85"
+//                 ry="21"
+//                 fill="none"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+//               <line
+//                 x1="5"
+//                 y1="90"
+//                 x2="175"
+//                 y2="90"
+//                 stroke="black"
+//                 strokeWidth="2"
+//               />
+
+//               {/* Asia highlight in gradient blue - proper coverage */}
+//               <path
+//                 d="M 40 60 
+//                    Q 55 50 70 55 
+//                    Q 85 60 100 65 
+//                    Q 115 70 130 80 
+//                    Q 145 90 145 105 
+//                    Q 145 120 135 130 
+//                    Q 125 140 110 140 
+//                    Q 95 140 80 135 
+//                    Q 65 130 55 120 
+//                    Q 45 110 45 100 
+//                    Q 45 90 50 80 
+//                    Q 55 70 40 60 Z"
+//                 fill="url(#asiaGradient)"
+//                 opacity="0.85"
+//               />
+              
+//               {/* Eastern extension */}
+//               <path
+//                 d="M 140 55 
+//                    Q 150 65 152 75 
+//                    Q 154 85 150 90 
+//                    L 145 85 
+//                    Q 142 75 140 70 
+//                    Z"
+//                 fill="url(#asiaGradient)"
+//                 opacity="0.85"
+//               />
+              
+//               {/* Southern extension */}
+//               <path
+//                 d="M 50 110 
+//                    Q 60 120 70 125 
+//                    L 65 115 
+//                    Q 58 110 55 105 
+//                    Z"
+//                 fill="url(#asiaGradient)"
+//                 opacity="0.85"
+//               />
+//             </g>
+
+//             {/* Blue rounded globe border */}
+//             <circle
+//               cx="90"
+//               cy="90"
+//               r="85"
+//               fill="none"
+//               stroke="#020264"
+//               strokeWidth="4"
+//             />
+//           </svg>
+
+//           <div className="flex flex-col">
+//             <h1 className="text-2xl font-bold text-[#020264] leading-tight">
+//               Asia Risk Platform
+//             </h1>
+//             <p className="text-sm text-[#2B83F6] font-medium">
+//               Annotated by a Risk Management for a Sales Asia
+//             </p>
+//           </div>
+//         </div>
+
+//         <nav className="flex items-center gap-6">
+//           <a
+//             href="#"
+//             className="text-[#020264] font-semibold"
+//           >
+//             Risk Database
+//           </a>
+//           <a href="#" className="text-[#2B83F6] hover:text-[#020264]">
+//             Risk Assessment Tool
+//           </a>
+//           <a href="#" className="text-[#2B83F6] hover:text-[#020264]">
+//             Knowledge Repository
+//           </a>
+//         </nav>
+
+//         <div className="flex items-center gap-3">
+//           <div className="flex items-center gap-2">
+//             <div className="w-10 h-10 bg-[#2B83F6] rounded-full flex items-center justify-center text-white">
+//               👤
+//             </div>
+//             <span className="text-sm font-semibold text-gray-700">
+//               Ida Farida ▼
+//             </span>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Blue line below header - thinner version */}
+//       <div className="w-full h-[1px] bg-gradient-to-r from-[#020264] to-[#2B83F8]"></div>
+//     </div>
+//   );
+// }
 
 
 
