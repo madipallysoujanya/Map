@@ -62,11 +62,11 @@ const Content = () => {
                 <div className="grid grid-cols-3 gap-1 w-[320px] text-xs">
                     <div className="col-span-1">
                         <select className="w-full px-1.5 py-1 text-xs border border-gray-300 rounded bg-white appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400">
-                            <option value="">Select Region</option>
-                            <option value="1">Region 1</option>
-                            <option value="2">Region 2</option>
-                            <option value="3">Region 3</option>
-                            <option value="4">Region 4</option>
+                            <option value="">Select year</option>
+                            <option value="1">2022</option>
+                            <option value="2">2023</option>
+                            <option value="3">2024</option>
+                            <option value="4">2025</option>
                         </select>
                     </div>
                     <div className="col-span-1">
@@ -102,50 +102,50 @@ const Content = () => {
 
                 {/* table */}
                 <div className="table-class w-[320px] mt-3">
-                    <table className="min-w-full border-x border-b border-gray-300 divide-y divide-gray-200 text-xs">
-                        <thead className="bg-gray-100">
-                            <tr>
-                                <th colSpan={4} className="px-2 py-1 text-center font-semibold text-gray-700 border-b-0 whitespace-normal break-words">
-                                    Recent Pandemic Impact: US$ 280 Million
-                                </th>
-                            </tr>
-                        </thead>
-                        <thead className="bg-gray-100">
-                            <tr>
-                                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words">Location Impact</th>
-                                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words">Impact Exposure (US$ Million)</th>
-                                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words">Death Toll (Lives)</th>
-                                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words">Pandemic Name</th>
-                            </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-gray-200 text-xs">
-                            <tr>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Area</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">50</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">20</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">COVID-19</td>
-                            </tr>
-                            <tr>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Bukit Merah</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">100</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
-                            </tr>
-                            <tr>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Water Catchment</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">15</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
-                            </tr>
-                            <tr>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Marine Parade</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">40</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">25</td>
-                                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Influenza A/H1N1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <table className="min-w-full border-x border-b border-gray-300 divide-y divide-gray-200 text-xs">
+        <thead className="bg-gray-100">
+            <tr>
+                <th colSpan={4} className="px-2 py-1 text-center font-semibold text-gray-700 border-b-0 whitespace-normal break-words">
+                    Recent Pandemic Impact: US$ 280 Million
+                </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Location Impact</th>
+                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Impact Exposure (US$ Million)</th>
+                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Death Toll (Lives)</th>
+                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Pandemic Name</th>
+            </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200 text-xs">
+            <tr>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Area</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">50</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">20</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">COVID-19</td>
+            </tr>
+            <tr>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Bukit Merah</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">100</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
+            </tr>
+            <tr>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Water Catchment</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">15</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
+            </tr>
+            <tr>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Marine Parade</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">40</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">25</td>
+                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Influenza A/H1N1</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
             </div>
         </Fragment>
     )
