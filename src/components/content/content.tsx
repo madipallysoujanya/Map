@@ -102,49 +102,58 @@ const Content = () => {
 
                 {/* table */}
                 <div className="table-class w-[320px] mt-3">
-    <table className="min-w-full border-x border-b border-gray-300 divide-y divide-gray-200 text-xs">
-        <thead className="bg-gray-100">
-            <tr>
-                <th colSpan={4} className="px-2 py-1 text-center font-semibold text-gray-700 border-b-0 whitespace-normal break-words">
-                    Recent Pandemic Impact: US$ 280 Million
-                </th>
-            </tr>
-        </thead>
-        <thead>
-            <tr>
-                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Location Impact</th>
-                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Impact Exposure (US$ Million)</th>
-                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Death Toll (Lives)</th>
-                <th className="px-2 py-1 text-left border-r font-semibold text-gray-700 border-b-0 whitespace-normal break-words bg-white">Pandemic Name</th>
-            </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200 text-xs">
-            <tr>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Area</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">50</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">20</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">COVID-19</td>
-            </tr>
-            <tr>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Bukit Merah</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">100</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
-            </tr>
-            <tr>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Central Water Catchment</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">30</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">15</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Measles</td>
-            </tr>
-            <tr>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Marine Parade</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">40</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">25</td>
-                <td className="px-2 py-1 border-b border-r whitespace-normal break-words">Influenza A/H1N1</td>
-            </tr>
-        </tbody>
-    </table>
+    <table className="min-w-full border border-black divide-y divide-black text-xs">
+    <thead>
+        <tr>
+            <th colSpan={4} className="px-2 py-1 text-center font-semibold text-black border-b border-black whitespace-normal break-words">
+                Recent Pandemic Impact: US$ 280 Million
+            </th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th className="px-2 py-1 text-left border-r border-black font-semibold text-black border-b-0 whitespace-normal break-words bg-white">
+                Location Impact
+            </th>
+            <th className="px-2 py-1 text-left border-r border-black font-semibold text-black border-b-0 whitespace-normal break-words bg-white">
+                Impact Exposure (US$ Million)
+            </th>
+            <th className="px-2 py-1 text-left border-r border-black font-semibold text-black border-b-0 whitespace-normal break-words bg-white">
+                Death Toll (Lives)
+            </th>
+            <th className="px-2 py-1 text-left border-r border-black font-semibold text-black border-b-0 whitespace-normal break-words bg-white">
+                Pandemic Name
+            </th>
+        </tr>
+    </thead>
+    <tbody className="bg-white divide-y divide-black text-xs">
+        <tr>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Central Area</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">50</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">20</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">COVID-19</td>
+        </tr>
+        <tr>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Bukit Merah</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">100</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">30</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Measles</td>
+        </tr>
+        <tr>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Central Water Catchment</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">30</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">15</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Measles</td>
+        </tr>
+        <tr>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Marine Parade</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">40</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">25</td>
+            <td className="px-2 py-1 border-b border-r border-black whitespace-normal break-words">Influenza A/H1N1</td>
+        </tr>
+    </tbody>
+</table>
+
 </div>
             </div>
         </Fragment>
