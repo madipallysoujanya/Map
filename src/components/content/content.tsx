@@ -86,7 +86,7 @@ const Content = () => {
                 </div>
 
                 {/* charts */}
-                <div className="demography-class">demography</div>
+                <div className="demography-class">Demography</div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="age-section">
